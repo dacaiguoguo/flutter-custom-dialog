@@ -55,18 +55,7 @@ class YYDialog {
     return this;
   }
 
-  YYDialog text(
-      {padding,
-      text,
-      color,
-      fontSize,
-      alignment,
-      textAlign,
-      maxLines,
-      textDirection,
-      overflow,
-      fontWeight,
-      fontFamily}) {
+  YYDialog text({padding, text, color, fontSize, alignment, textAlign, maxLines, textDirection, overflow, fontWeight, fontFamily}) {
     return this.widget(
       Padding(
         padding: padding ?? EdgeInsets.all(0.0),
@@ -125,14 +114,13 @@ class YYDialog {
                 }
               },
               style: TextButton.styleFrom(
-                primary: color1 ?? Colors.black,
-                padding: buttonPadding1,
-                textStyle: TextStyle(
-                  fontSize: fontSize1 ?? 18.0,
-                  fontWeight: fontWeight1,
-                  fontFamily: fontFamily1,
-                )
-              ),
+                  foregroundColor: color1 ?? Colors.black, //primary
+                  padding: buttonPadding1,
+                  textStyle: TextStyle(
+                    fontSize: fontSize1 ?? 18.0,
+                    fontWeight: fontWeight1,
+                    fontFamily: fontFamily1,
+                  )),
               child: Text(
                 text1 ?? "",
               ),
@@ -149,12 +137,12 @@ class YYDialog {
                 }
               },
               style: TextButton.styleFrom(
-                primary: color2 ?? Colors.black,
+                foregroundColor: color2 ?? Colors.black,
                 padding: buttonPadding2,
                 textStyle: TextStyle(
-                fontSize: fontSize2 ?? 14.0,
-                fontWeight: fontWeight2,
-                fontFamily: fontFamily2,
+                  fontSize: fontSize2 ?? 14.0,
+                  fontWeight: fontWeight2,
+                  fontFamily: fontFamily2,
                 ),
               ),
               child: Text(
@@ -241,8 +229,7 @@ class YYDialog {
     );
   }
 
-  YYDialog circularProgress(
-      {padding, backgroundColor, valueColor, strokeWidth}) {
+  YYDialog circularProgress({padding, backgroundColor, valueColor, strokeWidth}) {
     return this.widget(Padding(
       padding: padding,
       child: CircularProgressIndicator(
@@ -478,8 +465,7 @@ class CustomDialog {
       barrierLabel: "",
       transitionDuration: _duration ?? Duration(milliseconds: 250),
       transitionBuilder: _transitionsBuilder ?? _buildMaterialDialogTransitions,
-      pageBuilder: (BuildContext buildContext, Animation<double> animation,
-          Animation<double> secondaryAnimation) {
+      pageBuilder: (BuildContext buildContext, Animation<double> animation, Animation<double> secondaryAnimation) {
         return Builder(
           builder: (BuildContext context) {
             return _child;
@@ -489,11 +475,7 @@ class CustomDialog {
     );
   }
 
-  Widget _buildMaterialDialogTransitions(
-      BuildContext context,
-      Animation<double> animation,
-      Animation<double> secondaryAnimation,
-      Widget child) {
+  Widget _buildMaterialDialogTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
     Animation<Offset> custom;
     switch (_gravity) {
       case Gravity.top:
